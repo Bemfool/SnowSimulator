@@ -21,4 +21,4 @@ Generate snow flowers from the top ( every time 0-10 snow flowers by default ).
 
 ## Result 
 
-![Animation](https://github.com/Great-Keith/SnowSimulator/raw/assets/Animation.gif)
+![Animation](https://github.com/Great-Keith/SnowSimulator/raw/master/assets/Animation.gif)
