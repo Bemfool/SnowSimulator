@@ -17,17 +17,19 @@ private:
 	int m_Life;	
 	glm::vec3 m_Position;	
 	glm::vec3 m_Velocity;	
-	float m_Mass = 1.0;			
+	float m_Mass = 1.0;	
+	int MAX_LIFE = 500;
+	int MIN_LIFE = 200;
 
 public:
 
 	/* Function: constructor
-	 * Usage: Particle p(time);
+	 * Usage: Particle p();
 	 **********************************************************************
 	 * Init particle with initial time.
 	 */
-
-	Particle();
+	Particle() { }
+	Particle(glm::vec3 pos);
 
 
 	/* Function: exist
@@ -52,17 +54,6 @@ public:
 	const glm::vec3 &getVelocity() const { return m_Velocity; }
 	const glm::vec3 &getPosition() const { return m_Position; }
 	const int getLife() const { return m_Life; }
+	const int getMinLife() const { return MIN_LIFE; }
 };
 
-
-/* Function: randParticleNum
- * Usage: int n = randParticleNum();
- ***********************************************************************
- * Get a random particle number to generate. This number is calculated
- * as follows:
- *	n = average + variance * distribution[-1, 1]
- * In this particle system, it is between 0 and 10, which means every 
- * frame, there are less than 10 new particles generated from the top.
- */
-
-int randParticleNum();

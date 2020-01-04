@@ -8,9 +8,9 @@
 class Environment {
 private:
 	Environment() { }
-	glm::vec3 m_Gravity = glm::vec3(0.0, -0.05, 0.0);
+	glm::vec3 m_Gravity = glm::vec3(0.0, -0.005, 0.0);
 	glm::vec3 m_Wind = glm::vec3(0.0);
-	float m_k = 100;
+	float m_k = 10;
 	float m_Interval = 1.0;
 
 	float x_LeftBound  = -5.0;
