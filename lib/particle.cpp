@@ -3,32 +3,38 @@
 
 Particle::Particle() {
 	/* Init age */
-	age = uniform_random(MIN_AGE, MAX_AGE);
+	m_Life = uniform_random(MIN_AGE, MAX_AGE);
 	/* Init position */
-	p = glm::vec3(uniform_random(X_LEFT_BOUND, X_RIGHT_BOUND), 
+	m_Position = glm::vec3(uniform_random(X_LEFT_BOUND, X_RIGHT_BOUND), 
 				  Y_UPPER_BOUND, 
 				  uniform_random(Z_FAR_BOUND, Z_CLOSE_BOUND));
 	/* Init velocity */
-	v = glm::vec3(0.0, -0.018, 0.0);
-	/* Init acceleration */
-	a = glm::vec3(normal_random(0, 0.001), 0, normal_random(0, 0.001));
+	m_Velocity = glm::vec3(0.0, -0.018, 0.0);
 }
 
 
 bool Particle::exist() {
-	return p.y > Y_LOWER_BOUND & age > 0;
+	return m_Position.y > Y_LOWER_BOUND & m_Life > 0;
 }
 
 
 void Particle::update() {
+	float deltaT = Environment::getInstance().getInterval();
 	/* Update age */
-	age--;
+	m_Life--;
 	/* Update position */
-	p = p + v * DT + 0.5f * a * DT * DT;
+	m_Position = m_Position + m_Velocity * deltaT;
 	/* Update velocity */
-	v = v + a * DT;
-	/* Update acceleration */
-	a = glm::vec3(normal_random(0.0, 0.001), 0.0, normal_random(0.0, 0.001));
+	Environment::getInstance().setRndWind();
+	glm::vec3 force;
+	glm::vec3 gravity = Environment::getInstance().getGravity() * m_Mass;
+	glm::vec3 airFriction = glm::vec3(0.0, Environment::getInstance().getK() * glm::pow(glm::length(m_Velocity), 2), 0.0);
+	if (-gravity.y < airFriction.y) 
+		force = Environment::getInstance().getWind();
+	else 
+		force = gravity + airFriction + Environment::getInstance().getWind();
+	glm::vec3 acc = force / m_Mass;
+	m_Velocity = m_Velocity + acc * deltaT;
 }
 
 

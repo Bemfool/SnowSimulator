@@ -8,3 +8,5 @@
 .vs/ProjectSettings.json
 .vs/launch.vs.json
 CMakeSettings.json
+*.ipch
+.vs/VSWorkspaceState.json

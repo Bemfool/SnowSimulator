@@ -1,6 +1,6 @@
 #pragma once
-#include "random.h"
 #include "constant.h"
+#include "environment.h"
 #include <iostream>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -14,10 +14,10 @@
 
 class Particle {
 private:
-	int age;		// age
-	glm::vec3 p;	// position
-	glm::vec3 v;	// velocity
-	glm::vec3 a;	// acceleration
+	int m_Life;	
+	glm::vec3 m_Position;	
+	glm::vec3 m_Velocity;	
+	float m_Mass = 1.0;			
 
 public:
 
@@ -49,10 +49,9 @@ public:
 
 	void update();
 
-	const glm::vec3 &getV() const { return v; }
-	const glm::vec3 &getP() const { return p; }
-	const glm::vec3 &getA() const { return a; }
-	const int getAge() const { return age; }
+	const glm::vec3 &getVelocity() const { return m_Velocity; }
+	const glm::vec3 &getPosition() const { return m_Position; }
+	const int getLife() const { return m_Life; }
 };
 
 
