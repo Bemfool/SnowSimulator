@@ -10,3 +10,5 @@
 CMakeSettings.json
 *.ipch
 .vs/VSWorkspaceState.json
+
+./include/stb_image.h
