@@ -19,12 +19,12 @@ private:
 	glm::vec3 m_Velocity;	
 	float m_Mass = 1.0;	
 	int MAX_LIFE = 500;
-	int MIN_LIFE = 200;
+	int MIN_LIFE = 250;
 
 public:
 
 	/* Function: constructor
-	 * Usage: Particle p();
+	 * Usage: Particle p(pos);
 	 **********************************************************************
 	 * Init particle with initial time.
 	 */

@@ -30,9 +30,7 @@ void Particle::update() {
 	glm::vec3 airFriction = glm::vec3(0.0, Environment::getInstance().getK() * glm::pow(glm::length(m_Velocity), 2), 0.0);
 	if (-gravity.y < airFriction.y) {
 		force = Environment::getInstance().getWind();
-		//std::cout << "!!" << std::endl;
-	}
-	else
+	} else
 		force = gravity + airFriction + Environment::getInstance().getWind();
 	glm::vec3 acc = force / m_Mass;
 	m_Velocity = m_Velocity + acc * deltaT;

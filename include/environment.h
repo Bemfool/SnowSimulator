@@ -11,7 +11,7 @@ private:
 	glm::vec3 m_Gravity = glm::vec3(0.0, -0.005, 0.0);
 	glm::vec3 m_Wind = glm::vec3(0.0);
 	float m_k = 10;
-	float m_Interval = 1.0;
+	float m_Interval = 0.8;
 
 	float x_LeftBound  = -5.0;
 	float x_RightBound =  5.0;

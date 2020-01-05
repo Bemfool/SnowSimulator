@@ -12,3 +12,6 @@ CMakeSettings.json
 .vs/VSWorkspaceState.json
 
 ./include/stb_image.h
+include/stb_image.h
+
+build/
